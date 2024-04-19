@@ -12,8 +12,8 @@ def setup_virtualenv(repo_path:str):
     Returns:None
     '''
     try:
-        run(['poetry','--version'],check=True)
-    except CalledProcessError as e1:
+        import poetry
+    except Module as e1:
         print('Poetry is not installed!!')
         print('Installing poetry')
         try:
