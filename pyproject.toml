@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "poetry"
+name = "poetry_setup"
 version = "0.1.0"
 description = "Python script to perform setup tasks for Poetry in Colab/Jupyter Notebooks"
 authors = ["K14aNB <kirnb@protonmail.com>"]
