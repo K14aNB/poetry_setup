@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "poetry"
+version = "0.1.0"
+description = "Python script to perform setup tasks for Poetry in Colab/Jupyter Notebooks"
+authors = ["K14aNB <kirnb@protonmail.com>"]
+license = "Apache 2.0 license"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
