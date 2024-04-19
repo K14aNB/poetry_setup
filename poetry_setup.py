@@ -2,12 +2,9 @@ import os
 import sys
 from subprocess import run,CalledProcessError
 
-def setup_virtualenv(repo_path:str):
+def setup_virtualenv():
     '''
-    Takes repo_path as argument and creates a virtualenv and installs the dependencies specified in pyproject.toml
-
-    Arguments:
-    repo_path:str : Relative path of the current repo
+    Creates a virtualenv and installs the dependencies specified in pyproject.toml
 
     Returns:None
     '''
@@ -21,8 +18,6 @@ def setup_virtualenv(repo_path:str):
         except CalledProcessError as e2:
             print(f'{e2.cmd} failed')
     
-    os.chdir(repo_path)
-
     try:
         run(['poetry','config','virtualenvs.in-project','false'],check=True)
     except CalledProcessError as e3:
