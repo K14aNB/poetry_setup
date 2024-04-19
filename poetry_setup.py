@@ -13,7 +13,7 @@ def setup_virtualenv(repo_path:str):
     '''
     try:
         import poetry
-    except Module as e1:
+    except ModuleNotFoundError as e1:
         print('Poetry is not installed!!')
         print('Installing poetry')
         try:
