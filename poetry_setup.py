@@ -35,13 +35,15 @@ def setup_virtualenv():
         print(f'{e5.cmd} failed')
     
     python_version='python'+poetry_env_path[-4:]
-
-    sys.path.insert(0,os.path.join(poetry_env_path,'lib',python_version,'site-packages'))
-
+    
     try:
         run(['poetry','env','use',os.path.join(poetry_env_path,'bin','python')],check=True)
     except CalledProcessError as e6:
         print(f'{e6.cmd}')
+
+    sys.path.insert(0,os.path.join(poetry_env_path,'lib',python_version,'site-packages'))
+
+  
 
 
 
