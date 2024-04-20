@@ -1,12 +1,11 @@
 import os
-import sys
 from subprocess import run,CalledProcessError
 
 def setup_virtualenv():
     '''
     Creates a virtualenv and installs the dependencies specified in pyproject.toml
 
-    Returns:None
+    Returns: none
     '''
     try:
         import poetry
@@ -34,14 +33,16 @@ def setup_virtualenv():
     except CalledProcessError as e5:
         print(f'{e5.cmd} failed')
     
-    python_version='python'+poetry_env_path[-4:]
+    poetry_env_path=poetry_env_info_cmd.stdout.decode('utf-8').replace('\n','',1)
+    python_version=os.listdir(os.path.join(poetry_env_path,'lib'))[0]
     
     try:
         run(['poetry','env','use',os.path.join(poetry_env_path,'bin','python')],check=True)
     except CalledProcessError as e6:
         print(f'{e6.cmd}')
-
-    sys.path.insert(0,os.path.join(poetry_env_path,'lib',python_version,'site-packages'))
+    
+    print(f'poetry_env_path={poetry_env_path}')
+    print(f'python_version={python_version}')
 
   
 
